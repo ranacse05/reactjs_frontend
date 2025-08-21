@@ -27,6 +27,21 @@ function Dashboard({ onLogout }) {  // Receive onLogout callback
     }
   };
 
+  function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+    console.log("menu called");
+  }
+
+// Close menu if clicking outside
+document.addEventListener("click", function (event) {
+  const menu = document.getElementById("dropdownMenu");
+  const avatar = document.querySelector(".name");
+  if (menu && !menu.contains(event.target) && !avatar.contains(event.target)) {
+    menu.style.display = "none";
+  }
+});
+
   return (
     <div>
     <header className='flex-container shadow-border'>
@@ -40,8 +55,14 @@ function Dashboard({ onLogout }) {  // Receive onLogout callback
           <div className='account-type'>S&D Head</div>
           <div className='notification'>
               <div className='total_notifications'>2</div>
-          </div> 
-          <div className='name'>R</div>
+          </div>
+          <div className="profile-container"> 
+            <div className='name'>R</div>
+            <div className='dropdown-menu' id='dropdownMenu'>
+              <a href='#'>Change Password</a>
+              <a href='#'>Logout</a>
+            </div>
+          </div>
       </div>
     </header>
     <div>
