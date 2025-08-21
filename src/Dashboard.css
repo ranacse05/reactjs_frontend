@@ -1,0 +1,27 @@
+.flex-container {
+  display: flex;
+}
+
+.shadow-border  {
+  background-color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+}
+
+header {height: 60px; border: 1px solid red;}
+header img {height: 40px; margin: 10px;}
+
+.header-text {
+    margin: auto;
+    clear: both;
+    border: 1px solid sienna;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.right-side { font-size: 12px;border: 1px solid green;  display: flex;}
+.right-side div, .right-side span {margin-top: -15px;}
+.account-type {font-size: 20px;}
