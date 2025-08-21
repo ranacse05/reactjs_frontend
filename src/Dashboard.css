@@ -10,18 +10,51 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
 }
 
-header {height: 60px; border: 1px solid red;}
+header {height: 60px; }
 header img {height: 40px; margin: 10px;}
 
 .header-text {
     margin: auto;
     clear: both;
-    border: 1px solid sienna;
-    display: flex;
     justify-content: center;
     text-align: center;
+    width: 250px;
 }
 
-.right-side { font-size: 12px;border: 1px solid green;  display: flex;}
-.right-side div, .right-side span {margin-top: -15px;}
-.account-type {font-size: 20px;}
+.header-text .snd {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.header-text p {margin-top: 0px;}
+.search {margin-left: -40px;}
+
+.right-side { font-size: 12px;margin-right: 20px; display: flex;margin-top: 10px;}
+.right-side > span { display: flex; width: 1em; height: 1em;}
+.account-type {font-size: 13px;display: flex;padding: 3px; margin: 3px; border-radius: 15px;height: 20px; color: white; background:rgb(25, 118, 210) ; font-weight: 500;}
+
+.notification {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* cleaner way than hardcoding 15px */
+  margin: 0px 10px;
+  background-image: url("../public/bell.png");
+  background-size: 90%;     /* or "contain" */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.total_notifications {font-size: 13px;
+   color:whitesmoke;
+   width:20px; 
+   height: 20px; 
+   background: red; 
+   border-radius: 10px; 
+   float:right; 
+   margin:-5px; 
+   font-weight: 600;
+   text-align: center;
+  }
+  
+.name {width:30px;height: 30px; font-size: 21px; font-weight: 500; background:rgb(189, 189, 189); border-radius: 15px;text-align: center; padding: 5;color: white}
+

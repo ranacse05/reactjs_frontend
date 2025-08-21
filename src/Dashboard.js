@@ -35,11 +35,13 @@ function Dashboard({ onLogout }) {  // Receive onLogout callback
         <div className='snd'>S&D Dashboard</div>
         <p>Aagargone S&D Division</p>
       </div>
-      <input type='text' placeholder='Search tickets.....'></input>
+      <input type='text' className='search' placeholder='Search tickets.....'></input>
       <div className='right-side'>
           <div className='account-type'>S&D Head</div>
-          <span role="img" aria-label="alert">🚨</span>  
-          <span role="img" aria-label="alert">R</span>
+          <div className='notification'>
+              <div className='total_notifications'>2</div>
+          </div> 
+          <div className='name'>R</div>
       </div>
     </header>
     <div>
