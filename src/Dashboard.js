@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
-import Parse from './config/parse';
 
-function Dashboard({ onLogout }) {  // Receive onLogout callback
+function Dashboard({ onLogout }) {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [notificationOpen, setNotificationOpen] = useState(false);
+  const menuRef = useRef(null);
+  const avatarRef = useRef(null);
+  const notificationRef = useRef(null);
+  const notificationIconRef = useRef(null);
+
+  // Sample notifications data
+  const [notifications, setNotifications] = useState([
+    { id: 1, text: "New ticket #1234 assigned to you", read: false },
+    { id: 2, text: "Ticket #5678 status changed to 'Resolved'", read: false },
+    { id: 3, text: "Weekly report is ready for review", read: false }
+  ]);
 
   const handleLogout = async () => {
     try {
       console.log('Attempting logout...');
-      await Parse.User.logOut();
-      
       // Clear local storage
       localStorage.removeItem('parseSession');
       
@@ -20,56 +30,150 @@ function Dashboard({ onLogout }) {  // Receive onLogout callback
       // Redirect to login page
       navigate('/login');
       console.log('Logout successful');
-      
     } catch (error) {
       console.error('Logout failed:', error);
       alert('Logout failed. Please try again.');
     }
   };
 
-  function toggleMenu() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-    console.log("menu called");
-  }
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+    // Close notification if open
+    if (notificationOpen) setNotificationOpen(false);
+  };
 
-// Close menu if clicking outside
-document.addEventListener("click", function (event) {
-  const menu = document.getElementById("dropdownMenu");
-  const avatar = document.querySelector(".name");
-  if (menu && !menu.contains(event.target) && !avatar.contains(event.target)) {
-    menu.style.display = "none";
-  }
-});
+  const toggleNotification = () => {
+    setNotificationOpen(prev => !prev);
+    // Close profile menu if open
+    if (menuOpen) setMenuOpen(false);
+  };
+
+  const handleNotificationClick = (id) => {
+    console.log(`Notification ${id} clicked`);
+    // Mark as read
+    setNotifications(notifications.map(notif => 
+      notif.id === id ? {...notif, read: true} : notif
+    ));
+    // Close dropdown after click
+    setNotificationOpen(false);
+  };
+
+  useEffect(() => {
+    // Close menus if clicking outside
+    const handleClickOutside = (event) => {
+      // Close profile menu if clicked outside
+      if (menuOpen && 
+          menuRef.current && 
+          !menuRef.current.contains(event.target) && 
+          avatarRef.current && 
+          !avatarRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+      
+      // Close notification menu if clicked outside
+      if (notificationOpen && 
+          notificationRef.current && 
+          !notificationRef.current.contains(event.target) && 
+          notificationIconRef.current && 
+          !notificationIconRef.current.contains(event.target)) {
+        setNotificationOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    
+    // Clean up the event listener
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [menuOpen, notificationOpen]);
+
+  // Count unread notifications
+  const unreadCount = notifications.filter(notif => !notif.read).length;
 
   return (
-    <div>
-    <header className='flex-container shadow-border'>
-      <img src='desco-logo.png' height='80px' />
-      <div className='header-text'>
-        <div className='snd'>S&D Dashboard</div>
-        <p>Aagargone S&D Division</p>
-      </div>
-      <input type='text' className='search' placeholder='Search tickets.....'></input>
-      <div className='right-side'>
+    <div className="dashboard-container">
+      <header className='flex-container shadow-border'>
+        <img src='desco-logo.png' height='80px' alt='Company Logo' />
+        <div className='header-text'>
+          <div className='snd'>S&D Dashboard</div>
+          <p>Aagargone S&D Division</p>
+        </div>
+        <input type='text' className='search' placeholder='Search tickets.....' />
+        <div className='right-side'>
           <div className='account-type'>S&D Head</div>
-          <div className='notification'>
-              <div className='total_notifications'>2</div>
+          
+          {/* Notification dropdown */}
+          <div className="notification-container">
+            <div 
+              className='notification-icon'
+              ref={notificationIconRef}
+              onClick={toggleNotification}
+            >
+              <span><img className="bell-icon" src='bell.png'></img></span>
+              {unreadCount > 0 && !notificationOpen && (
+                <div className='notification-badge'>{unreadCount}</div>
+              )}
+            </div>
+            {notificationOpen && (
+              <div className='notification-dropdown' ref={notificationRef}>
+                <div className="notification-header">
+                  <h3>Notifications</h3>
+                  <span className="notification-count">{unreadCount} unread</span>
+                </div>
+                <div className="notification-list">
+                  {notifications.map(notification => (
+                    <div 
+                      key={notification.id} 
+                      className={`notification-item ${notification.read ? 'read' : 'unread'}`}
+                      onClick={() => handleNotificationClick(notification.id)}
+                    >
+                      {notification.text}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
+          
+          {/* Profile dropdown */}
           <div className="profile-container"> 
-            <div className='name'>R</div>
-            <div className='dropdown-menu' id='dropdownMenu'>
-              <a href='#'>Change Password</a>
-              <a href='#'>Logout</a>
+            <div 
+              className='avatar'
+              ref={avatarRef}
+              onClick={toggleMenu}
+            >
+              R
+            </div>
+            {menuOpen && (
+              <div className='dropdown-menu' ref={menuRef}>
+                <a href='#password'>Change Password</a>
+                <a href='#logout' onClick={handleLogout}>Logout</a>
+              </div>
+            )}
+          </div>
+        </div>
+      </header>
+      
+      <div className="dashboard-content">
+        <div className="dashboard-card">
+          <h2>Quick Stats</h2>
+          <div className="stats-container">
+            <div className="stat-item">
+              <div className="stat-value">24</div>
+              <div className="stat-label">Open Tickets</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-value">12</div>
+              <div className="stat-label">In Progress</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-value">38</div>
+              <div className="stat-label">Resolved</div>
             </div>
           </div>
+        </div>
       </div>
-    </header>
-    <div>
-      <h1>Welcome to Dashboard</h1>
-      <p>You are successfully logged in!</p>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
     </div>
   );
 }
