@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import Navigation from './components/Nevigation';
 import Tabbar from './components/Tabbar';
+import Table from './components/Table';
+import AddTickets from './components/AddTickets.js';
 
 function Dashboard() {
   const [startDate, setStartDate] = useState('2025-08-18');
@@ -16,6 +18,12 @@ function Dashboard() {
     alert('Navigating to Analytics');
   };
   
+  
+  const handleAddTicket = () => {
+    alert("Add Ticket Clicked!!");
+  }
+
+
   return (
     <>
     <div className="dashboard-container">
@@ -40,6 +48,7 @@ function Dashboard() {
           />
         </label>
         <button onClick={handleGetData}>GET DATA</button>
+        <button className='add-button' onClick={handleAddTicket}>Add Ticket</button> <AddTickets />
         <button className='analytics' onClick={handleAnalytics}>ANALYTICS</button>
       </div>
       
@@ -47,7 +56,9 @@ function Dashboard() {
         <Tabbar />
     </div>
     <div className="dashboard-content">
-            <div className='tickets'></div>
+            <div className='tickets'>
+              <Table />
+            </div>
             <div className='mapview'></div>
       </div>
       </>

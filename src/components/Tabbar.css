@@ -3,8 +3,6 @@
   align-items: center;
   padding: 10px 20px;
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  margin-top: -10px;
 }
 
 .tab {
@@ -17,7 +15,6 @@
   font-size: 14px;
   color: #333;
   outline: none;
-  margin: auto;
 }
 
 .tab.active {

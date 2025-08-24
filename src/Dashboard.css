@@ -155,3 +155,24 @@ button:hover {
 .analytics {
   margin-left: 40%;
 }
+
+
+.add-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  margin-top: 15px;
+  background-color: #2ec888;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  float: right;
+  height: 35px;
+}
+
+.add-button:hover {
+  background-color: #0d5336;
+  transition: .3s;
+}
