@@ -37,6 +37,7 @@
   float: left;
   margin: 10px;
   height: 350px;
+  border-radius: 10px;
 }
 
 .mapview {
@@ -46,6 +47,7 @@
   float: left;
   margin: 10px;
   height: 350px;
+  border-radius: 10px;
 }
 
 /* Dashboard content */

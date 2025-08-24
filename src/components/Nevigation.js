@@ -109,7 +109,7 @@ function Navigation({ onLogout }) {
               ref={notificationIconRef}
               onClick={toggleNotification}
             >
-              <span><img className="bell-icon" src='bell.png'></img></span>
+              <span><img className="bell-icon" src='../bell.png'></img></span>
               {unreadCount > 0 && !notificationOpen && (
                 <div className='notification-badge'>{unreadCount}</div>
               )}
