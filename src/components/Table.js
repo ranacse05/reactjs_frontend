@@ -1,38 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 import './Table.css';
+import { data } from '../Data.js';
+import Modal from "./Modal.js";
 
 export default function Table() {
-//
-  const data = [
-    { userId:1,name: "Anom", age: 19, gender: "Male",title:"No1",completed:"08-24-2025" },
-    { userId:2,name: "Megha", age: 19, gender: "Female",title:"No2",completed:"08-24-2025" },
-    { userId:3,name: "Subham", age: 25, gender: "Male",title:"No3",completed:"08-24-2025" },
-   ]
+  const dataToDisplay = data.tasks;
 
-   const dataToDisplay = data;
+  const [counter, setCounter] = useState(0);
+
+  const titles = [
+    "SL",
+    "Gang Assign Time",
+    "Gang Closure Time",
+    "Ticket Resolution Time (S&D resolve time)",
+    "Ticket Status",
+    "Dispatcher Ticket Closure Time",
+    "Dispatched Time",
+    "S&D Name"
+  ];
+
+  const [selectedRowData, setSelectedRowData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleRowClick = (obj) => {
+    setSelectedRowData(obj);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedRowData(null);
+  };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          {Object.keys(dataToDisplay[0]).map((key) => {
-            if (key != "userId") return <th key={key}>{key.toUpperCase()}</th>;
-          })}
-        </tr>
-      </thead>
-      <tbody>
-        {dataToDisplay.map((obj) => {
-          return (
-            <tr key={obj.id}>
-              <td>{obj.name}</td>
-              <td>{obj.title}</td>
-              <td>{obj.completed.toString()}</td>
-              <td>{obj.id}</td>
-              <td>{obj.title}</td>
+    <>
+      <table>
+        <thead>
+          <tr>
+            {Object.values(titles).map((value) => (
+              <th key={value}>{value.toUpperCase()}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {dataToDisplay.map((obj, index) => (
+            <tr key={obj.id} onClick={() => handleRowClick(obj)} style={{ cursor: 'pointer' }}>
+              <td>{index + 1}</td>
+              <td>{obj.assign_time || 'N/A'}</td>
+              <td>{obj.closed_time || 'N/A'}</td>
+              <td>{obj.resolved_time || 'N/A'}</td>
+              <td 
+                style={{ 
+                  color: obj.status === 'RESOLVED' ? 'green' : 'inherit',
+                  fontWeight: obj.status === 'RESOLVED' ? 'bold' : 'normal'
+                }}
+              >
+                {obj.status || 'N/A'}
+              </td> 
+              <td>{obj.closed_time || 'N/A'}</td>
+              <td>{obj.dispatch_time || 'N/A'}</td>
+              <td>{obj.snd_name || 'N/A'}</td>
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </tbody>
+      </table>
+
+      {isModalOpen && selectedRowData && (
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          <div className="modal-data">
+            <div className="two-inputs">
+                <div className="close-button" onClick={handleCloseModal}>X</div>
+              <div>
+                <label>Calling Number</label>
+                <input type="text" className="input-text" value={selectedRowData.caller_contact || ''} readOnly />
+              </div>
+              <div>
+                <label>Complainer Name</label>
+                <input type="text" className="input-text"  value={selectedRowData.caller_name || ''} readOnly />
+              </div>
+            </div>
+            <div>
+              <label>Complain Address</label>
+              <input type="text" className="input-text"   value={selectedRowData.complain_address || ''} readOnly />
+            </div>
+            <div className="two-inputs">
+              <div>
+                <label>Nearby Points</label>
+                <input type="text" className="input-text"  value={selectedRowData.nearby_points || ''} readOnly />
+              </div>
+              <div>
+                <label>Landmarks</label>
+                <input type="text" className="input-text"  value={selectedRowData.landmarks || ''} readOnly />
+              </div>
+            </div>
+            <div className="two-inputs">
+              <div>
+                <label>Complaint</label>
+                <input type="text" className="input-text"  value={selectedRowData.query_sub_category || ''} readOnly />
+              </div>
+              <div>
+                <label>Assigned By</label>
+                <input type="text" className="input-text"  value={selectedRowData.assigned_by || ''} readOnly />
+              </div>
+            </div>
+            <div>
+              <label>Complaint Code</label>
+              <input type="text" className="input-text"  value={selectedRowData.query_category || ''} readOnly />
+            </div>
+          </div>
+        </Modal>
+      )}
+    </>
   );
 }

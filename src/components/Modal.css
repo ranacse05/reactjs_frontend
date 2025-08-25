@@ -2,50 +2,71 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9998; /* background layer */
+  z-index: 1000;
 }
 
 .modal {
   background: #fff;
   padding: 20px;
-  border-radius: 12px;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  z-index: 9999; /* modal content */
+  border-radius: 10px;
+  width: 700px;
   position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.modal h2 {
-  margin-top: 0;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.modal-actions {
+.modal-content {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
+.modal-content label {
+  font-weight: bold;
+  color: #666;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.modal-content .two-inputs {
+  display: flex;
+  gap: 20px;
+}
+
+.modal-content .two-inputs input {
+  width: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: lightpink;
+  font-size: 20px;
+  font-weight: 700;
   cursor: pointer;
+  padding: 5px;
+  text-align: center;
 }
 
-.btn-cancel {
-  background: #555;
+.close-button:hover {
   color: white;
+  background: red;
 }
 
-.btn-cancel:hover {
-  background: #333;
-}
+

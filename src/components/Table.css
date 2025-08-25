@@ -8,7 +8,6 @@
   margin-left: 5rem;
 }
 table {
-  border: 1px solid black;
   width: 100%;
 }
 table tr td {
@@ -16,15 +15,31 @@ table tr td {
   white-space: nowrap;
   overflow: hidden;
 }
-td,
+
 th {
-  padding: 5px;
-  border: 1px solid black;
+  background-color: #d4d4d4;
   text-align: center;
 }
-td:nth-child(2) {
-  width: 70% !important;
+
+tr{
+  background-color: gray;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
 }
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tr:hover {
+  background-color: #e6f7ff;
+}
+
+
 #page-no-dropdown {
   width: fit-content;
   border: 1px solid black;
@@ -37,4 +52,11 @@ select:focus-visible {
 button {
   border: 1px solid black;
   padding: 2px;
+}
+
+.input-text {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px;
 }
