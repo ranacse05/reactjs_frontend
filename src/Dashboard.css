@@ -1,0 +1,181 @@
+/* Dashboard.css */
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.shadow-border  {
+  background-color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+}
+
+.search-bar {
+  height: 60px;
+  border: 1px solid red;
+}
+
+.small {
+  width: 130px;
+  height: 20px;
+  font-size: 12px;
+  float: left;
+}
+
+.tab-bar {
+  height: 50px;
+}
+
+.tickets {
+  flex: content;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  border: 1px solid #bbb;
+  width: 56%;
+  float: left;
+  margin: 10px;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.mapview {
+  flex: content;
+  width: 40%;
+  border: 1px solid #bbb;
+  float: left;
+  margin: 10px;
+  height: 350px;
+  border-radius: 10px;
+}
+
+/* Dashboard content */
+.dashboard-content {
+margin-top: 10px;
+}
+
+.dashboard-content h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.dashboard-content p {
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.stats-container {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+
+.date-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+  max-width: 95%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.date-inputs label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+}
+
+.date-inputs input[type="date"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.date-inputs span {
+  font-size: 18px;
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  margin-top: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  float: right;
+  height: 35px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.add-div {
+  margin: 0px 300px 0px 300px;
+}
+
+.get-data {
+  margin-left: 10px;
+}
+
+.add-button {
+  padding: 10px 20px;
+  margin-left: 10%;
+  margin-top: 15px;
+  background-color: #2ec888;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  float: right;
+  height: 35px;
+}
+
+.add-button:hover {
+  background-color: #0d5336;
+  transition: .3s;
+}
