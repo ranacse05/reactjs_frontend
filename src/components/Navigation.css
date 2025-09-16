@@ -10,8 +10,7 @@ header img {
 }
 
 .header-text {
-  margin-left: 25%;
-  margin-right: 15%;
+  margin: auto;
   clear: both;
   justify-content: center;
   text-align: center;
