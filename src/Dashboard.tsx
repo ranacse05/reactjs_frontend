@@ -52,32 +52,7 @@ function Dashboard() {
           />
         </label>
         <button className='get-data' onClick={handleGetData}>GET DATA</button>
-        <div className="add-div">
-          <button className='add-button' onClick={handleOpenDialog}>Add Ticket</button>
-        </div>
-        {open && (
-        <Modal title="Enter Data" onClose={() => setOpen(false)}>
-          <form>
-            <div>
-              <label>Name:</label>
-              <input type="text" placeholder="Enter Name" />
-            </div>
-            <div>
-              <label>Email:</label>
-              <input type="email" placeholder="Enter Email" />
-            </div>
-            <div className="modal-actions">
-              <button type="submit" className="btn" style={{ background: "blue", color: "white" }}>
-                Submit
-              </button>
-              <button type="button" className="btn btn-cancel" onClick={() => setOpen(false)}>
-                Cancel
-              </button>
-            </div>
-          </form>
-        </Modal>
-      )}
-       {/* isDialogOpen && <AddTickets isOpen={isDialogOpen} onClose={handleCloseDialog} /> */}
+        <AddTickets />
         <Analytics />  
       </div>
       
