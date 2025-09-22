@@ -16,6 +16,13 @@ button {
   font-size: 16px;
 }
 
+select {
+  margin-left: 5px;
+  width: 400px;
+  height: 30px;
+  margin-top: 5px;
+}
+
 button:hover {
   background-color: #0056b3;
 }
@@ -76,4 +83,25 @@ button:hover {
 
 .dialog-buttons button[type="button"]:hover {
   background-color: #5a6268;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+  width: 80%;
+  float: right;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.no-options {
+  color: #999;
+  font-style: italic;
+  margin-top: 5px;
 }
