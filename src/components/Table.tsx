@@ -68,44 +68,48 @@ export default function Table() {
       {isModalOpen && selectedRowData && (
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <div className="modal-data">
-            <div className="two-inputs">
-                <div className="close-button" onClick={handleCloseModal}>X</div>
-              <div>
+           
+              <div className="close-button" onClick={handleCloseModal}>X</div>
+              <div className="single">
                 <label>Calling Number</label>
-                <input type="text" className="input-text" value={selectedRowData.caller_contact || ''} readOnly />
+                {/* <input type="text" className="input-text" value={selectedRowData.caller_contact || ''} readOnly /> */}
+                {selectedRowData.caller_contact || ''}
               </div>
-              <div>
+              <div className="single">
                 <label>Complainer Name</label>
-                <input type="text" className="input-text"  value={selectedRowData.caller_name || ''} readOnly />
+                {/* <input type="text" className="input-text"  value={selectedRowData.caller_name || ''} readOnly /> */}
+                {selectedRowData.caller_name || ''}
               </div>
-            </div>
-            <div>
+            <div className="single">
               <label>Complain Address</label>
-              <input type="text" className="input-text"   value={selectedRowData.complain_address || ''} readOnly />
+              {/* <input type="text" className="input-text"   value={selectedRowData.complain_address || ''} readOnly /> */}
+              {selectedRowData.complain_address || ''}
             </div>
-            <div className="two-inputs">
-              <div>
+            
+            <div className="single">
                 <label>Nearby Points</label>
-                <input type="text" className="input-text"  value={selectedRowData.nearby_points || ''} readOnly />
+                {/* <input type="text" className="input-text"  value={selectedRowData.nearby_points || ''} readOnly /> */}
+                {selectedRowData.nearby_points || ''}
               </div>
-              <div>
+              <div className="single">
                 <label>Landmarks</label>
-                <input type="text" className="input-text"  value={selectedRowData.landmarks || ''} readOnly />
+                {/* <input type="text" className="input-text"  value={selectedRowData.landmarks || ''} readOnly /> */}
+                {selectedRowData.landmarks || ''}
               </div>
-            </div>
-            <div className="two-inputs">
-              <div>
+            <div className="single">
                 <label>Complaint</label>
-                <input type="text" className="input-text"  value={selectedRowData.query_sub_category || ''} readOnly />
+                {/* <input type="text" className="input-text"  value={selectedRowData.query_sub_category || ''} readOnly /> */}
+                {selectedRowData.query_sub_category || ''}
               </div>
-              <div>
+              <div className="single">
                 <label>Assigned By</label>
-                <input type="text" className="input-text"  value={selectedRowData.assigned_by || ''} readOnly />
+                {/* <input type="text" className="input-text"  value={selectedRowData.assigned_by || ''} readOnly /> */}
+                {selectedRowData.assigned_by || ''}
               </div>
-            </div>
             <div>
               <label>Complaint Code</label>
-              <input type="text" className="input-text"  value={selectedRowData.query_category || ''} readOnly />
+              {/* <input type="text" className="input-text"  value={selectedRowData.query_category || ''} readOnly /> */}
+              {selectedRowData.query_category || ''}
             </div>
           </div>
         </Modal>

@@ -60,3 +60,8 @@ button {
     font-size: 14px;
     padding: 5px;
 }
+
+.single {
+  width: 50%;
+  float: left;
+}
