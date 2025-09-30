@@ -1,0 +1,306 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_7c18e0d9d05e45ffb374c50a8c64d6f6
+  created: 1753250158270
+  modified: 1753250158270
+  description: ""
+collection:
+  - url: https://parseapi.back4app.com/users
+    name: Registration
+    meta:
+      id: req_92c6673d92cd4da896d82cf3c5b85334
+      created: 1753250158328
+      modified: 1753253551323
+      isPrivate: false
+      description: ""
+      sortKey: -1753250158328
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "ranacse05",
+          "password": "123456",
+          "email": "ranacse05@gmail.com",
+          "role": "Admin"
+        }
+    parameters:
+      - id: pair_bb135de3e03d4eabb35a59776170679d
+        name: ""
+        value: ""
+        description: ""
+        disabled: false
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ede9d5efc15e46e59ea9176f1a76c909
+      - name: User-Agent
+        value: insomnia/11.3.0
+        id: pair_0c27082195b34824ae983510a1e60ac7
+      - id: pair_6390beb297934983aad6098e2da2b3f9
+        name: X-Parse-Application-Id
+        value: XCl3Potccsv0JtK70UcXbu7u3PexKDrje7HM7fqR
+        description: ""
+        disabled: false
+      - id: pair_78293ff5db7a4f0091c58eb055a0c2ba
+        name: X-Parse-REST-API-Key
+        value: AjzWukNn2FhabWTIDeSZNQ78PGmD1VlNOgCv0XZJ
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://parseapi.back4app.com/login
+    name: Login
+    meta:
+      id: req_ccc163ecabae41a391ce2aa85eb21a88
+      created: 1753253561579
+      modified: 1757917072533
+      isPrivate: false
+      description: ""
+      sortKey: -1753253561579
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters:
+      - id: pair_ca469c4ce39b4046bf0701315b6e418a
+        name: username
+        value: ranacse05
+        description: ""
+        disabled: false
+      - id: pair_fccdca9001254b5c8df96745d53cc73d
+        name: password
+        value: "123456"
+        description: ""
+        disabled: false
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_14d170eeb4cd4cd78758ea4119e597ee
+      - name: User-Agent
+        value: insomnia/11.3.0
+        id: pair_86080ea2e7b54747bc417bb8440ca532
+      - id: pair_0b52fa740c8f4cbc95a8a9de2bdb7510
+        name: X-Parse-Application-Id
+        value: XCl3Potccsv0JtK70UcXbu7u3PexKDrje7HM7fqR
+        description: ""
+        disabled: false
+      - id: pair_15c46ab24d5342cca57c5f227f62e551
+        name: X-Parse-REST-API-Key
+        value: AjzWukNn2FhabWTIDeSZNQ78PGmD1VlNOgCv0XZJ
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://parseapi.back4app.com/classes/snd
+    name: SnD Add
+    meta:
+      id: req_34d456b523624709b60d03e4705d55db
+      created: 1757995775382
+      modified: 1758000621664
+      isPrivate: false
+      description: ""
+      sortKey: -1757995775382
+    method: POST
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ae570de232a845f3929d55d958df6daf
+      - name: User-Agent
+        value: insomnia/11.3.0
+        id: pair_254f5bc778424414b8a475866c03497c
+      - id: pair_a75eb90faff04613a468f0439f79ca26
+        name: X-Parse-Application-Id
+        value: XCl3Potccsv0JtK70UcXbu7u3PexKDrje7HM7fqR
+        description: ""
+        disabled: false
+      - id: pair_5114a37c1ad145e6a9fdeecd95df9530
+        name: X-Parse-REST-API-Key
+        value: AjzWukNn2FhabWTIDeSZNQ78PGmD1VlNOgCv0XZJ
+        description: ""
+        disabled: false
+      - id: pair_80bf1f8392e34acbb3539760b601e9a6
+        name: X-Parse-Session-Token
+        value: r:92e0fc8fe5b9eece6d3f15ae47ed7c83
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://parseapi.back4app.com/classes/SND
+    name: SnD Get
+    meta:
+      id: req_9863afaa4988484cbf6981da5be15bbf
+      created: 1757999101645
+      modified: 1758513665123
+      isPrivate: false
+      description: ""
+      sortKey: -1757389831645
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ae570de232a845f3929d55d958df6daf
+      - name: User-Agent
+        value: insomnia/11.3.0
+        id: pair_254f5bc778424414b8a475866c03497c
+      - id: pair_a75eb90faff04613a468f0439f79ca26
+        name: X-Parse-Application-Id
+        value: XCl3Potccsv0JtK70UcXbu7u3PexKDrje7HM7fqR
+        description: ""
+        disabled: false
+      - id: pair_5114a37c1ad145e6a9fdeecd95df9530
+        name: X-Parse-REST-API-Key
+        value: AjzWukNn2FhabWTIDeSZNQ78PGmD1VlNOgCv0XZJ
+        description: ""
+        disabled: false
+      - id: pair_80bf1f8392e34acbb3539760b601e9a6
+        name: X-Parse-Session-Token
+        value: r:22899a3baa68a1c7cf0ad70aafb25b7c
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://parseapi.back4app.com/classes/Categories
+    name: Categories Add
+    meta:
+      id: req_f958e3ba32aa46828f9556c248983e1f
+      created: 1758430891003
+      modified: 1758438141859
+      isPrivate: false
+      description: ""
+      sortKey: -1757692803513.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "requests": [
+            {
+              "method": "POST",
+              "path": "/classes/Categories",
+              "body": {
+                "categoryId": 2,
+                "categoryName": "মিটারে টাকা আছে কিন্তু বিদ্যুৎ চলে গেছে",
+                "type": "Complaint",
+                "subCategory": false
+        			}
+            }
+          ]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ae570de232a845f3929d55d958df6daf
+      - name: User-Agent
+        value: insomnia/11.3.0
+        id: pair_254f5bc778424414b8a475866c03497c
+      - id: pair_a75eb90faff04613a468f0439f79ca26
+        name: X-Parse-Application-Id
+        value: XCl3Potccsv0JtK70UcXbu7u3PexKDrje7HM7fqR
+        description: ""
+        disabled: false
+      - id: pair_5114a37c1ad145e6a9fdeecd95df9530
+        name: X-Parse-REST-API-Key
+        value: AjzWukNn2FhabWTIDeSZNQ78PGmD1VlNOgCv0XZJ
+        description: ""
+        disabled: false
+      - id: pair_80bf1f8392e34acbb3539760b601e9a6
+        name: X-Parse-Session-Token
+        value: r:1621fd0b6dec6863d543c742130ed701
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: https://parseapi.back4app.com/classes/Categories
+    name: Categories Get
+    meta:
+      id: req_1506ab4c7d864b4d8671e1cf24e56c6e
+      created: 1758433753032
+      modified: 1758435337231
+      isPrivate: false
+      description: ""
+      sortKey: -1757086859776.5
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_ae570de232a845f3929d55d958df6daf
+      - name: User-Agent
+        value: insomnia/11.3.0
+        id: pair_254f5bc778424414b8a475866c03497c
+      - id: pair_a75eb90faff04613a468f0439f79ca26
+        name: X-Parse-Application-Id
+        value: XCl3Potccsv0JtK70UcXbu7u3PexKDrje7HM7fqR
+        description: ""
+        disabled: false
+      - id: pair_5114a37c1ad145e6a9fdeecd95df9530
+        name: X-Parse-REST-API-Key
+        value: AjzWukNn2FhabWTIDeSZNQ78PGmD1VlNOgCv0XZJ
+        description: ""
+        disabled: false
+      - id: pair_80bf1f8392e34acbb3539760b601e9a6
+        name: X-Parse-Session-Token
+        value: r:92e0fc8fe5b9eece6d3f15ae47ed7c83
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_8faf4316e05383fbb4b1174b3bcc6d82427ed9a2
+    created: 1753250158275
+    modified: 1753250158275
+environments:
+  name: Base Environment
+  meta:
+    id: env_8faf4316e05383fbb4b1174b3bcc6d82427ed9a2
+    created: 1753250158273
+    modified: 1753250158273
+    isPrivate: false
